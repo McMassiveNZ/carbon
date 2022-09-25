@@ -251,6 +251,4 @@ protected:
     bool isMuted_ = false;
 };
 
-CARBON_DECLARE_INTERFACE_REGISTRY(SoundInterface);
-
 }

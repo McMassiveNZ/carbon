@@ -23,10 +23,6 @@ const UnicodeString ScriptManager::ScriptExtension = ".script";
 #include "CarbonEngine/Core/FileSystem/FileSystem.h"
 #include "CarbonEngine/Scripting/AngelScriptIncludeWrapper.h"
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "AngelScript" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-#endif
-
 namespace Carbon
 {
 
@@ -453,6 +449,12 @@ bool ScriptManager::setup()
 int ScriptManager::registerGlobalFunction(const String& declaration, VoidFunction function)
 {
     return -1;
+}
+
+
+bool ScriptManager::registerGlobalVariable(const String& name, const String& type, void* var)
+{
+    return false;
 }
 
 void ScriptManager::setGlobalFunctionCallbackPointers(int functionID, void* instance, void* method)

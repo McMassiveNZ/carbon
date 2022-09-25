@@ -190,20 +190,3 @@
 #include "CarbonEngine/Sound/SoundInterface.h"
 #include "CarbonEngine/Sound/SoundShader.h"
 #include "CarbonEngine/Sound/SoundShaderManager.h"
-
-// Automatically link with the appropriate library on MSVC
-#ifdef _MSC_VER
-    #ifdef _DEBUG
-        #ifdef CARBON_64BIT
-            #pragma comment(lib, "CarbonEngineDebug64.lib")
-        #else
-            #pragma comment(lib, "CarbonEngineDebug.lib")
-        #endif
-    #else
-        #ifdef CARBON_64BIT
-            #pragma comment(lib, "CarbonEngine64.lib")
-        #else
-            #pragma comment(lib, "CarbonEngine.lib")
-        #endif
-    #endif
-#endif

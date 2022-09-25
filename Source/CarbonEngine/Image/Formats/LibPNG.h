@@ -5,7 +5,7 @@
 
 #ifdef CARBON_INCLUDE_FREEIMAGE
 
-#include <LibPNG/png.h>
+#include <png.h>
 
 namespace Carbon
 {

@@ -1024,8 +1024,6 @@ private:
     bool wasCreatedThroughSubclassRegistry_ = false;
 };
 
-CARBON_DECLARE_SUBCLASS_REGISTRY(Entity);
-
 /**
  * \file
  */

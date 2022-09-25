@@ -816,6 +816,4 @@ protected:
 #endif
 };
 
-CARBON_DECLARE_INTERFACE_REGISTRY(PlatformInterface);
-
 }

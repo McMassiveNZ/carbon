@@ -28,20 +28,6 @@
             #define CARBON_MSVC_VERSION "Unknown"
         #endif
 
-        // The CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX macro is used to automatically select the correct static library
-        // file for a dependency such as FreeImage, it is aware of debug and release variants as well as the MSVC
-        // version being used
-        #ifdef _DEBUG
-            #define CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX "VisualStudio" CARBON_MSVC_VERSION "Debug.lib"
-        #else
-            #define CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX "VisualStudio" CARBON_MSVC_VERSION ".lib"
-        #endif
-
-        // Check that the statically linked multithreaded runtime is being used
-        #if defined(_DLL) || !defined(_MT)
-            #error The statically linked multithreaded runtime must be used, compile with either /MT or /MTd
-        #endif
-
         #define _CRT_SECURE_NO_WARNINGS
     #else
         #error This compiler is not supported on this platform

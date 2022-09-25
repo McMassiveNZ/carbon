@@ -13,11 +13,6 @@
     #error Using FreeImage requires that ZLib is included in the build
 #endif
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "FreeImage" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-    #pragma comment(lib, "ZLib" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-#endif
-
 namespace Carbon
 {
 

@@ -118,8 +118,6 @@ private:
     bool wasCreatedThroughSubclassRegistry_ = false;
 };
 
-CARBON_DECLARE_SUBCLASS_REGISTRY(EntityController);
-
 /**
  * This macro should be put in the primary source file for every entity controller subclass in order to register the
  * subclass type.

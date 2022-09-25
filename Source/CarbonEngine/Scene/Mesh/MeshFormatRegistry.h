@@ -48,8 +48,6 @@ public:
     static bool saveMeshFile(const UnicodeString& filename, const Mesh& mesh);
 };
 
-CARBON_DECLARE_FILE_FORMAT_REGISTRY(ReadMeshFormatFunction, WriteMeshFormatFunction);
-
 /**
  * \file
  */

@@ -11,10 +11,6 @@
 #include "CarbonEngine/Physics/PhysicsInterface.h"
 #include "CarbonEngine/Physics/PhysicsIntersectResult.h"
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "Bullet" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-#endif
-
 namespace Carbon
 {
 

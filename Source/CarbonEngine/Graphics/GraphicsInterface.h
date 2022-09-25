@@ -858,6 +858,4 @@ private:
     uint64_t apiCallCount_ = 0;
 };
 
-CARBON_DECLARE_INTERFACE_REGISTRY(GraphicsInterface);
-
 }

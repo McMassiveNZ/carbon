@@ -421,6 +421,4 @@ private:
     bool isUpdating_ = true;
 };
 
-CARBON_DECLARE_INTERFACE_REGISTRY(PhysicsInterface);
-
 }

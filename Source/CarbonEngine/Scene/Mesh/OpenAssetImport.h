@@ -14,11 +14,6 @@
     #error Using Open Asset Import requires that ZLib is included in the build
 #endif
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "OpenAssetImport" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-    #pragma comment(lib, "ZLib" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-#endif
-
 namespace Carbon
 {
 

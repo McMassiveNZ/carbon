@@ -7,10 +7,6 @@
 
 #include "CarbonEngine/Sound/Formats/OggVorbisIncludeWrapper.h"
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "Vorbis" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-#endif
-
 namespace Carbon
 {
 

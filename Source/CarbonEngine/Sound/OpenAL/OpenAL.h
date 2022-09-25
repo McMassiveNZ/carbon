@@ -30,11 +30,6 @@
     #error OpenAL version must be v1.1
 #endif
 
-#ifdef _MSC_VER
-    #pragma comment(lib, "OpenALSoft" CARBON_STATIC_LIBRARY_DEPENDENCY_SUFFIX)
-    #pragma comment(lib, "WinMM.lib")
-#endif
-
 namespace Carbon
 {
 

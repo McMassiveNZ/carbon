@@ -50,8 +50,6 @@ public:
                               unsigned int channelCount, unsigned int frequency, const Vector<byte_t>& data);
 };
 
-CARBON_DECLARE_FILE_FORMAT_REGISTRY(ReadSoundFormatFunction, WriteSoundFormatFunction);
-
 /**
  * \file
  */
