@@ -1,4 +1,4 @@
-REM @echo off
+@echo off
 
 if exist "../Dependencies/vcpkg" (
 	pushd "../Dependencies/vcpkg"
