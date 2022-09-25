@@ -1,0 +1,7 @@
+add_subdirectory(BoxesSample)
+add_subdirectory(DeferredLightingSample)
+add_subdirectory(ImpostersSample)
+add_subdirectory(PostProcessSample)
+add_subdirectory(SkeletalAnimationSample)
+add_subdirectory(TerrainSample)
+add_subdirectory(CarbonEngine)
