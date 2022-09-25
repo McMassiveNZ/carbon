@@ -68,8 +68,8 @@ set( CORE_SRC
     Core/Exception.h
     Core/FileFormatRegistry.h
     Core/InterfaceRegistry.h
-    Core/LogFile.h
-    Core/LogFile.cpp
+    Core/Logfile.h
+    Core/Logfile.cpp
     Core/Noncopyable.h
     Core/Parameter.h
     Core/Parameter.cpp
@@ -137,27 +137,23 @@ source_group(Exporters FILES ${EXPORTERS_SRC})
 list(APPEND SOURCES ${EXPORTERS_SRC})
 
 set(PATHFINDING_SRC
-    Game/PathFinding/AStarTraversal.h
-    Game/PathFinding/AStarTraversal.cpp
-    Game/PathFinding/GridNavigationGraph.h
-    Game/PathFinding/GridNavigationGraph.cpp
-    Game/PathFinding/HexagonalNavigationGraph.h
-    Game/PathFinding/HexagonalNavigationGraph.cpp
-    Game/PathFinding/NavigationEdge.h
-    Game/PathFinding/NavigationEdge.cpp
-    Game/PathFinding/NavigationGraph.h
-    Game/PathFinding/NavigationGraph.cpp
-    Game/PathFinding/NavigationNode.h
-    Game/PathFinding/NavigationNode.cpp
+    Game/Pathfinding/AStarTraversal.h
+    Game/Pathfinding/AStarTraversal.cpp
+    Game/Pathfinding/GridNavigationGraph.h
+    Game/Pathfinding/GridNavigationGraph.cpp
+    Game/Pathfinding/HexagonalNavigationGraph.h
+    Game/Pathfinding/HexagonalNavigationGraph.cpp
+    Game/Pathfinding/NavigationEdge.h
+    Game/Pathfinding/NavigationEdge.cpp
+    Game/Pathfinding/NavigationGraph.h
+    Game/Pathfinding/NavigationGraph.cpp
+    Game/Pathfinding/NavigationNode.h
+    Game/Pathfinding/NavigationNode.cpp
 )
 source_group(Game\\Pathfinding FILES ${PATHFINDING_SRC})
 list(APPEND SOURCES ${PATHFINDING_SRC})
 
 set(GAME_SRC
-    Game/GameCenter.h
-    Game/GameCenter.mm
-    Game/InAppPurchase.h
-    Game/InAppPurchase.mm
     Game/ScrollingLayer.h
     Game/ScrollingLayer.cpp
     Game/SplashScreen.h
@@ -167,6 +163,17 @@ set(GAME_SRC
 )
 source_group(Game FILES ${GAME_SRC})
 list(APPEND SOURCES ${GAME_SRC})
+
+if(APPLE)
+    set(GAME_SRC_APPLE
+        Game/GameCenter.h
+        Game/GameCenter.mm
+        Game/InAppPurchase.h
+        Game/InAppPurchase.mm
+    )
+    source_group(Game FILES ${GAME_SRC_APPLE})
+    list(APPEND SOURCES ${GAME_SRC_APPLE})
+endif()
 
 set(GEOMETRY_SRC
     Geometry/Triangle.h
@@ -263,8 +270,8 @@ set(IMAGE_FORMATS_SRC
     Image/Formats/DDS.h
     Image/Formats/FreeImageIncludeWrapper.h
     Image/Formats/FreeImageLoader.h
-    Image/Formats/libJPEG.h
-    Image/Formats/libPNG.h
+    Image/Formats/LibJPEG.h
+    Image/Formats/LibPNG.h
     Image/Formats/Meta.h
     Image/Formats/NativeImage.h
     Image/Formats/PVR.h
@@ -281,8 +288,8 @@ set(IMAGE_SRC
     Image/ImageFormatRegistry.h
     Image/ImageFormatRegistry.cpp
     Image/ImageTransforms.cpp
-    Image/LightMapPacker.h
-    Image/LightMapPacker.cpp
+    Image/LightmapPacker.h
+    Image/LightmapPacker.cpp
     Image/PVRTC.cpp
     Image/sRGB.cpp
 )
@@ -483,8 +490,8 @@ set(RENDER_TEXTURE_SRC
     Render/Texture/Texture2D.cpp
     Render/Texture/Texture3D.h
     Render/Texture/Texture3D.cpp
-    Render/Texture/TextureCubeMap.h
-    Render/Texture/TextureCubeMap.cpp
+    Render/Texture/TextureCubemap.h
+    Render/Texture/TextureCubemap.cpp
     Render/Texture/TextureManager.h
     Render/Texture/TextureManager.cpp
     Render/Texture/TextureProperties.h
@@ -545,12 +552,12 @@ list(APPEND SOURCES ${SCENE_ENTITY_SRC})
 set(SCENE_GUI_SRC
     Scene/GUI/GUIButton.h
     Scene/GUI/GUIButton.cpp
-    Scene/GUI/GUIComboBox.h
-    Scene/GUI/GUIComboBox.cpp
+    Scene/GUI/GUICombobox.h
+    Scene/GUI/GUICombobox.cpp
     Scene/GUI/GUIConsoleWindow.h
     Scene/GUI/GUIConsoleWindow.cpp
-    Scene/GUI/GUIEditBox.h
-    Scene/GUI/GUIEditBox.cpp
+    Scene/GUI/GUIEditbox.h
+    Scene/GUI/GUIEditbox.cpp
     Scene/GUI/GUIEvents.h
     Scene/GUI/GUIEvents.cpp
     Scene/GUI/GUILabel.h
@@ -772,7 +779,11 @@ endif()
 if(CARBON_INCLUDE_OPENAL)
     message("-- OpenAL included in this build")
     find_package(OpenAL CONFIG REQUIRED)
-    target_link_libraries(CarbonEngine PRIVATE OpenAL::OpenAL winmm)
+    if(WIN32)
+        target_link_libraries(CarbonEngine PRIVATE OpenAL::OpenAL winmm)
+    else()
+        target_link_libraries(CarbonEngine PRIVATE OpenAL::OpenAL)
+    endif()
     target_compile_definitions(CarbonEngine PRIVATE CARBON_INCLUDE_OPENAL)
 endif()
 
