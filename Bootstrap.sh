@@ -5,30 +5,28 @@ if [ ! -d $DEPENDENCIES ]; then
     mkdir Dependencies
 fi
 
-pushd ./Dependencies
-pwd
+cd $DEPENDENCIES
 
 VCPKG='./vcpkg'
 if [ ! -d $VCPKG ]; then
     git clone https://github.com/Microsoft/vcpkg.git
 fi
 
-pushd ./vcpkg
+cd $VCPKG
 ./bootstrap-vcpkg.sh -disableMetrics
 
-popd
-popd
+cd ../..
 
-pushd Scripts
+cd ./Scripts
 echo 'Installing dependencies'
-./InstallDependencies.sh
+./InstallDependencies.sh $1
 
 echo 'Generating Workspace'
-sh GenerateWorkspace.sh
+./GenerateWorkspace.sh $1
 
 echo 'Building Configurations'
-sh Build.sh
+./Build.sh
 
-popd
+cd ..
 
 echo 'FINSHED!'

@@ -16,7 +16,7 @@ option(CARBON_INCLUDE_PHYSX "Add PhysX PhysX to this build of Carbon" OFF)
 option(CARBON_INCLUDE_FREEIMAGE "Add the FreeImage to this build of Carbon" ON)
 option(CARBON_INCLUDE_FREETYPE "Add the FreeType to this build of Carbon" ON)
 option(CARBON_INCLUDE_OPENAL "Add OpenAL to this build of Carbon" ON)
-option(CARBON_INCLUDE_OPENASSETIMPORT "Add OpenAssetImport to this build of Carbon" ON)
+option(CARBON_INCLUDE_OPENASSETIMPORT "Add OpenAssetImport to this build of Carbon" OFF)
 option(CARBON_INCLUDE_VORBIS "Add VORBIS to this build of Carbon" ON)
 option(CARBON_INCLUDE_ZLIB "Add ZLIB to this build of Carbon" ON)
 
